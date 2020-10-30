@@ -3,6 +3,8 @@ package com.wcc.supertrunfo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.wcc.supertrunfo.entities.Driver
+import com.wcc.supertrunfo.entities.Vehicle
 import kotlinx.android.synthetic.main.activity_cards.*
 
 class CardsActivity : AppCompatActivity() {
@@ -12,6 +14,10 @@ class CardsActivity : AppCompatActivity() {
 
         val playerOneName = intent.getStringExtra("player_one") ?: "Player One"
         val playerTwoName = intent.getStringExtra("player_two") ?: "Player Two"
+
+//        val newPlayerOne = Player(playerOneName)
+//        newPlayerOne.isWinner = false
+//        newPlayerOne.name = playerOneName
 
         val vehiculeOne = mapOf(
             "maxAcceleration" to "100",
@@ -32,7 +38,7 @@ class CardsActivity : AppCompatActivity() {
             "doors" to "0",
             "style" to "regular",
             "gears" to "7",
-            "type" to "bicke"
+            "type" to "bike"
         )
 
         val vehiculeThree = mapOf(
@@ -57,7 +63,6 @@ class CardsActivity : AppCompatActivity() {
             "type" to "car"
         )
 
-
         val vehiculeFive = mapOf(
             "maxAcceleration" to "30",
             "accelerationTime" to "240",
@@ -67,6 +72,78 @@ class CardsActivity : AppCompatActivity() {
             "style" to "regular",
             "gears" to "4",
             "type" to "bike"
+        )
+
+
+
+        val newVehicleOne = Vehicle(
+                100,
+                120,
+                5,
+                120,
+                2,
+                "sedã",
+                5,
+                "car"
+        )
+
+        val newVehicleTwo = Vehicle (
+                50,
+                60,
+                2,
+                10,
+                0,
+                "regular",
+                7,
+                "bike"
+        )
+
+        val newVehicleThree = Vehicle (
+                170,
+                40,
+                2,
+                70,
+                0,
+                "adventure",
+                6,
+                "motorcycle"
+        )
+
+        val newVehicleFour = Vehicle (
+                130,
+                170,
+                4,
+                110,
+                2,
+                "hatch",
+                5,
+                "car"
+        )
+
+        val newVehicleFive = Vehicle (
+                30,
+                240,
+                1,
+                13,
+                0,
+                "regular",
+                4,
+                "bike"
+        )
+
+        val newDriverOne = Driver(
+                40,
+                60,
+                10,
+                2,
+                10,
+                0,
+                3,
+                4
+        )
+
+        val newDriverTwo = Driver(
+                90,10, 30, 30, 0, 0, 2, 7
         )
 
         val driverOne = mapOf(

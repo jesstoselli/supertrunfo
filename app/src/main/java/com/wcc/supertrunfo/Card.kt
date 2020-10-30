@@ -1,33 +1,56 @@
 package com.wcc.supertrunfo
 
+import com.wcc.supertrunfo.entities.Driver
+import com.wcc.supertrunfo.entities.Player
+import com.wcc.supertrunfo.entities.Vehicle
+
 class Card (
-        val vehicle: Vehicle,
-        val driver: Driver,
+        private val vehicle: Vehicle,
+        private val driver: Driver,
         private val player: Player
 ) {
     val label: String = "Card ${player.name}"
-    val maxVelocity = setMaxVelocity()
-    val accelerationTime = setAccelerationTime()
-    val passengers = setPassengers()
-    val xP = setXP()
+    val maxVelocity = initMaxVelocity()
+    val accelerationTime = vehicle.accelerationTime
+    val passengers = initPassengers()
+    val xP = initXP()
 
-    private fun setMaxVelocity(): Int {
-        TODO()
+    private fun initMaxVelocity(): Int {
+        return when (vehicle.type) {
+            "car" -> carMaxVelocity()
+            "motorcycle" -> motorcycleMaxVelocity()
+            else -> bikeMaxVelocity()
+        }
     }
 
-    private fun setAccelerationTime(): Int {
-        TODO()
+    private fun bikeMaxVelocity(): Int {
+        return vehicle.maxAcceleration * driver.boldness
     }
 
-//    (currentVehiclePlayerOne["passengers"]?.toInt()
-//    ?: 0) * (1 + (currentDriverPlayerOne["defensiveDriving"]?.toInt() ?: 0))
-    private fun setPassengers(): Int {
+    private fun motorcycleMaxVelocity(): Int {
+        return (1 / vehicle.weight) * vehicle.maxAcceleration
+    }
+
+    private fun carMaxVelocity(): Int {
+        return if (vehicle.style == "sedã") {
+            vehicle.maxAcceleration
+        } else {
+            vehicle.maxAcceleration + 10
+        }
+    }
+
+
+    private fun initPassengers(): Int {
         return vehicle.passengers * (1 + driver.defensiveDriving)
     }
 
+    private fun initXP(): Int {
+        return when (vehicle.type) {
+            "car" -> driver.carXP
+            "motorcycle" -> driver.motorcycleXP
+            else -> driver.bikeXP
+        }
 
-    private fun setXP(): Int {
-        TODO()
     }
 }
 
