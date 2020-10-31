@@ -75,62 +75,6 @@ class CardsActivity : AppCompatActivity() {
         )
 
 
-
-        val newVehicleOne = Vehicle(
-                100,
-                120,
-                5,
-                120,
-                2,
-                "sedã",
-                5,
-                "car"
-        )
-
-        val newVehicleTwo = Vehicle (
-                50,
-                60,
-                2,
-                10,
-                0,
-                "regular",
-                7,
-                "bike"
-        )
-
-        val newVehicleThree = Vehicle (
-                170,
-                40,
-                2,
-                70,
-                0,
-                "adventure",
-                6,
-                "motorcycle"
-        )
-
-        val newVehicleFour = Vehicle (
-                130,
-                170,
-                4,
-                110,
-                2,
-                "hatch",
-                5,
-                "car"
-        )
-
-        val newVehicleFive = Vehicle (
-                30,
-                240,
-                1,
-                13,
-                0,
-                "regular",
-                4,
-                "bike"
-        )
-
         val newDriverOne = Driver(
                 40,
                 60,
